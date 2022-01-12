@@ -1,0 +1,115 @@
+body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navbar-brand {
+    font: bold !important;
+}
+
+.navbar-nav {
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    color: azure;
+}
+
+.navbar {
+    margin-bottom: 0.5rem;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+.img-thumbnail {
+    border-radius: 500px !important;
+}
+
+.btn-margin {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.intro-content {
+    font-size: 1.6rem;
+    color: rgb(41, 39, 39);
+    /* margin-left: 3rem; */
+    font-family: 'Cutive Mono', monospace;
+}
+
+.carousel-border-radius {
+    border-radius: 1rem;
+}
+
+.carousel-margin {
+    margin-top: 6rem;
+    margin-bottom: 1rem;
+}
+
+.cards-margin {
+    margin-bottom: 0.5rem;
+}
+
+.pagination-margin {
+    margin-top: 1rem;
+}
+
+img {
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.card {
+    margin: 0 auto;
+    /* Added */
+    float: none;
+    /* Added */
+    margin-bottom: 10px;
+    /* Added */
+}
+
+.hr-bold-purple {
+    opacity: 0.75;
+    text-decoration: none;
+    border: 2px solid rgb(153, 0, 255);
+}
+
+.img-project-thumbnail {
+    border: 3px solid black;
+    border-radius: 1rem;
+}
+
+.link-deco {
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.link-deco-btn {
+    text-decoration: none;
+}
+
+.coda {
+    color: aliceblue;
+}
+
+.row {
+    align-items: center;
+}
+
+.form-btn {
+    display: inline;
+}
+
+.row.project {
+    align-items: flex-start;
+}
