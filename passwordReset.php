@@ -25,9 +25,9 @@
     include("header.php");
     ?>
 
-    <!-- CONTENT -->
-    <form action="" method="POST" class="justify-item-center text-center">
-        <div class="card shadow-lg p-3" style="max-width: 400px ;margin-top: 6rem;">
+   <!-- CONTENT -->
+   <form action = "" method = "POST" class="justify-item-center text-center">
+        <div class="card shadow-lg p-3" style= "max-width: 400px ;margin-top: 6rem;">
             <div class="card-body">
                 <h4 class="mb-3">Reset Password</h4>
                 <hr class="hr-bold-purple">
@@ -38,7 +38,7 @@
                     <input type="password" name="cpass" class="form-control" id="exampleFormControlInput1" placeholder="Confirm New Password">
                 </div>
                 <div class="mb-3">
-                    <button type="submit" name="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <button type="submit"  name="submit"class="btn btn-primary btn-lg">Submit</button>
                 </div>
                 <!-- <div class="mb-3"><a href="./forgotPassword.php" class="link-primary link-deco-btn">Forgot Password</a></div>
                 <p>Don't Have an Account? <a href="./joinUs.php" class="card-link">Sign Up</a></p> -->
@@ -66,48 +66,52 @@
 </html>
 
 <?php
-
+ 
 include 'dbcon.php';
-if (isset($_POST['submit'])) //will check whether submit button is clicked or not
-{
-    $token = $_GET['token']; //GET method is used to get token from the web address
+if(isset($_POST['submit'])) //will check whether submit button is clicked or not
+{  $token= $_GET['token']; //GET method is used to get token from the web address
+ 
+    $pass=$_POST['pass']; // user entered new password will be stored into $pass variable
+    $cpass=$_POST['cpass'];
+    $hash = password_hash($pass,PASSWORD_BCRYPT); //this will encrypt the user entered password
+    $chash = password_hash($cpass,PASSWORD_BCRYPT); //this will encrypt the user entered confirm password
 
-    $pass = $_POST['pass']; // user entered new password will be stored into $pass variable
-    $cpass = $_POST['cpass'];
-    $hash = password_hash($pass, PASSWORD_BCRYPT); //this will encrypt the user entered password
-    $chash = password_hash($cpass, PASSWORD_BCRYPT); //this will encrypt the user entered confirm password
-
-    if ($pass === $cpass) //this will check whether pass and cpass are equal or not
+    if($pass === $cpass) //this will check whether pass and cpass are equal or not
     {
-        $updatequery = "UPDATE joinus SET pass='$hash' WHERE token='$token'";
-        //this query is used to update the password for the user which have specific $token
+          $updatequery = "UPDATE joinus SET pass='$hash' WHERE token='$token'";
+          //this query is used to update the password for the user which have specific $token
 
-        $query = mysqli_query($con, $updatequery);
+          $query = mysqli_query($con,$updatequery);
 
-        if ($query) //this will check whether query run successfully or not
+          if($query) //this will check whether query run successfully or not
 
-        {
-?>
-            <script>
+          {
+            ?>
+                 <script>    
                 alert('password changed successfully'); //massage will be displayed if password updated suucessfully
-                location.replace("signIn.php");
+                location.replace("signIn.php"); 
             </script>
+                   
+            <?php
 
-        <?php
-
-
-        }
-    } else {
+            
+           }
+        
+       
+         
+    }
+    else{
 
         ?>
-        <script>
+        <script>    
             alert('password and confirm password not match'); //this massage will be displayed if pass and cpass not match
         </script>
-
-<?php
+    
+        <?php
     }
+
 }
 ?>
-
+    
 
 </html>

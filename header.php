@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark fixed-top" aria-label="Eighth navbar example">
     <div class="container">
         <a class="navbar-brand" href="./index.php">
@@ -28,7 +29,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="./projectList.php?Category='OpenCV'">OpenCV</a></li>
+                        <li><a class="dropdown-item" href="./projectList.php?Category=V'">OpenCV</a></li>
                         <li><a class="dropdown-item" href="./projectList.php?Category='Tkinter'">Tkinter</a></li>
                         <li><a class="dropdown-item" href="./projectList.php?Category='GUI'">GUI</a></li>
                     </ul>
@@ -46,7 +47,7 @@
                 <?php
 
                 @session_start();
-                if (!isset($_SESSION['email'])) {
+               if (!isset($_SESSION['email'])) {
                 ?>
 
                     <li class="nav-item">
@@ -57,10 +58,7 @@
 
                 <?php
                 } else {
-                ?> 
-                    <li class="nav-item">
-                        <span class="username">Hello <?php echo $_SESSION['fname']; ?></span>
-                    </li>
+                ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown" aria-expanded="false"><img src="./images/logo_cropped_resized.png" alt="User"></a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown07">
@@ -72,9 +70,15 @@
                             <li><a href="logout.php" class="dropdown-item" href="#">Sign Out</a></li>
                         </ul>
                     </li>
-                <?php
+                <?php 
                 }
+                @session_start();
+                if (isset($_SESSION['email'])) {
                 ?>
+                    <li class="nav-item">
+                        <span class="username">Hello <?php echo $_SESSION['fname']; ?></span>
+                    </li>
+                <?php } ?>
             </ul>
 
         </div>

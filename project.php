@@ -59,7 +59,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <!-- hashtags will be displayed for the perticular project -->
+                          <!-- hashtags will be displayed for the perticular project -->
                         <a href="#" class="link-secondary link-deco">#<?php echo $row['Hashtag1']; ?></a>
                         <a href="#" class="link-secondary link-deco">#<?php echo $row['Hashtag2']; ?></a>
                         <a href="#" class="link-secondary link-deco">#<?php echo $row['Hashtag3']; ?></a>
@@ -67,10 +67,10 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-12">
-                <!-- Title will be displayed for the perticular project -->
+                  <!-- Title will be displayed for the perticular project -->
                 <h3 style="font-size: 2.5rem;"><?php echo $row['Title']; ?></h3>
                 <p class="text-muted">
-                    <!-- Description will be displayed for the perticular project -->
+                      <!-- Description will be displayed for the perticular project -->
                     <b><?php echo nl2br($row['Description']); ?></b>
                 </p>
                 <a class="btn btn-dark" href="<?php echo $row['DownloadLink']; ?>" target="_blank" role="button">Download Project</a>
@@ -78,7 +78,7 @@
                 $pyout = passthru('python Webscarpping.py ' . $ID . ' ' . $Search_Tags);
                 echo $pyout;
                 ?>
-                <a class="btn btn-dark" href="<?php echo $row['VideoLink']; ?>" target="_blank" role="button">Video Reference</a>
+                <a class="btn btn-dark" href="<?php echo $row['VideoLink'];?>" target="_blank" role="button">Video Reference</a>
                 <form method="post" class="form-btn">
 
                     <button type="submit" id="change" name="button<?php echo $GOTO; ?>" class="btn btn-success ">Add Bookmark</button>
@@ -89,41 +89,44 @@
     </div>
 
     <?php
-    include 'dbcon.php';
-    if (isset($_POST['button' . $GOTO]))  // will check whether submit button is clicked or not
-    {
-        if (isset($_SESSION['email'])) // will check whether user is logged in or not
-        {
-
-            $bookmarkquery = "SELECT * FROM bookmark WHERE email = '" . $_SESSION['email'] . "' AND project_id='" . $GOTO . "'";
-            //query will check whether bookmark is alreday added or not
-            $query_for_bookmark = mysqli_query($con, $bookmarkquery);
-            $bookmark_count = mysqli_num_rows($query_for_bookmark);
-            if ($bookmark_count > 0) {
-    ?>
-                <script>
-                    alert("Bookmark already Exist!"); //massage will be displayed if project is already bookmarked
-                </script>
-
+                include 'dbcon.php';
+                if (isset($_POST['button' . $GOTO]))  // will check whether submit button is clicked or not
+                {
+                    if(isset($_SESSION['email'])) // will check whether user is logged in or not
+                    {
+                    
+                        $bookmarkquery = "SELECT * FROM bookmark WHERE email = '" . $_SESSION['email'] . "' AND project_id='" . $GOTO . "'";
+                        //query will check whether bookmark is alreday added or not
+                        $query_for_bookmark = mysqli_query($con, $bookmarkquery);
+                        $bookmark_count = mysqli_num_rows($query_for_bookmark);
+                        if ($bookmark_count > 0) {
+                    ?>
+                            <script>
+                                alert("Bookmark already Exist!"); //massage will be displayed if project is already bookmarked
+                            </script>
+    
             <?php
-            } else {
-                $updatequery = "INSERT INTO bookmark(email,project_id) VALUES ('" . $_SESSION['email'] . "','$GOTO')";
-                //this query will store the project id for which the bookmark button is clicked
-                $query = mysqli_query($con, $updatequery);
-            }
-        } else {
-            ?>
-            <script>
-                alert("Kindly Login to Use this functionality"); //massage will be displayed if user is not logged in
-            </script>
+                        } else {
+                            $updatequery = "INSERT INTO bookmark(email,project_id) VALUES ('" . $_SESSION['email'] . "','$GOTO')";
+                             //this query will store the project id for which the bookmark button is clicked
+                            $query = mysqli_query($con, $updatequery);
+                        }
+                    }
+                    else
+                    {
+                        ?>
+                        <script>
+                            alert("Kindly Login to Use this functionality"); //massage will be displayed if user is not logged in
+                        </script>
 
-    <?php
-        }
-    }
+        <?php
+                    }
+                   
+                }
+            
 
 
-
-    ?>
+        ?>
     <!-- FOOTER -->
     <footer class="my-4">
         <hr class="dropdown-divider ">

@@ -17,7 +17,7 @@
 
 
     <title>PyProjects | Projects</title>
-
+    
 </head>
 
 <body>
@@ -44,21 +44,15 @@
         }
 
 
-        if (isset($_GET['Category'])) {
+        if (isset($_GET['Category']))  
+        {
             $Filter = $_GET['Category']; //get method is used to fetch catagory from the web address
             $sql = "SELECT * FROM `projects` where Hashtag1=$Filter OR Hashtag2=$Filter OR Hashtag3=$Filter OR Category=$Filter";
             //this query will run if filter is applied by the user
-    ?>
-            <center>
-                <h1 class="card-title" style="font-size: 3rem;">
-                    Category : <?php echo $Filter; ?>
-                </h1>
-                <hr>
-            </center>
-    <?php
         } else {
             $sql = "SELECT * FROM `projects`";  //this query will run if filter is not applied by the user
         }
+
 
         $result = mysqli_query($conn, $sql);
 
@@ -69,19 +63,19 @@
             while ($num--) //loop is used to display all the projects on the website
             {
                 $row = mysqli_fetch_assoc($result);
-            ?>
+        ?>
                 <div class="cards-margin">
                     <div class="card">
                         <div class="row">
                             <div class="col-md-4 text-center">
-                                <!-- image will be displayed for the perticular project -->
+                                 <!-- image will be displayed for the perticular project -->
                                 <img src="<?php echo $row['IMAGE']; ?>" class="img-fluid rounded-start" style="max-height: 18rem; margin: auto;" alt="...">
                             </div>
                             <div class="col">
                                 <div class="card-body">
-                                    <!-- Title will be displayed for the perticular project -->
+                                     <!-- Title will be displayed for the perticular project -->
                                     <h4 class="card-title" style="font-size: 2rem;"><?php echo $row['Title']; ?></h4>
-                                    <!-- hashtags will be displayed for the perticular project -->
+                                       <!-- hashtags will be displayed for the perticular project -->
                                     <a href="#" class="link-secondary link-deco">#<?php echo $row['Hashtag1']; ?></a>
                                     <a href="#" class="link-secondary link-deco">#<?php echo $row['Hashtag2']; ?></a>
                                     <a href="#" class="link-secondary link-deco">#<?php echo $row['Hashtag3']; ?></a>
@@ -106,35 +100,38 @@
                 <?php
                 include 'dbcon.php';
                 if (isset($_POST['button' . $GOTO])) // will check whether submit button is clicked or not
-                {
-                    if (isset($_SESSION['email'])) // will check whether user is logged in or not
+                 {
+                    if(isset($_SESSION['email'])) // will check whether user is logged in or not
                     {
-
-
+                        
+    
                         $bookmarkquery = "SELECT * FROM bookmark WHERE email = '" . $_SESSION['email'] . "' AND project_id='" . $GOTO . "'";
                         $query_for_bookmark = mysqli_query($con, $bookmarkquery);
-                        //query will check whether bookmark is alreday added or not
+                         //query will check whether bookmark is alreday added or not
                         $bookmark_count = mysqli_num_rows($query_for_bookmark);
                         if ($bookmark_count > 0) {
-                ?>
+                    ?>
                             <script>
                                 alert("Bookmark already Exist!"); //massage will be displayed if project is already bookmarked
                             </script>
-
-                        <?php
+    
+            <?php
                         } else {
                             $updatequery = "INSERT INTO bookmark(email,project_id) VALUES ('" . $_SESSION['email'] . "','$GOTO')";
-                            //this query will store the project id for which the bookmark button is clicked
+                              //this query will store the project id for which the bookmark button is clicked
                             $query = mysqli_query($con, $updatequery);
                         }
-                    } else {
+                    }
+                    else
+                    {
                         ?>
                         <script>
-                            alert("Kindly Login to Use this functionality"); //massage will be displayed if user is not logged in
+                            alert("Kindly Login to Use this functionality");  //massage will be displayed if user is not logged in
                         </script>
 
         <?php
                     }
+                   
                 }
             }
         }

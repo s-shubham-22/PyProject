@@ -8,89 +8,89 @@ session_start(); //this function is used to start the session
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
 
-  <!-- Bootstrap CSS / Extra CSS -->
-  <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- Bootstrap CSS / Extra CSS -->
+    <link rel="stylesheet" href="./css/style.css?v=<?php echo time();?>">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-  <title>PyProjects | About Us</title>
-
+    <title>PyProjects | About Us</title>
+    
 </head>
 
 <body>
-  <!-- NAVBAR -->
-  <?php
-  $pgname = "join";
-  include("header.php");
-  ?>
+    <!-- NAVBAR -->
+    <?php
+    $pgname = "join";
+    include("header.php");
+    ?>
 
-  <!-- CONTENT -->
-  <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" class="justify-item-center text-center" style="margin-top: 5.5rem;">
-    <div class="card shadow-lg p-3" style="max-width: 400px;">
-      <div class="card-body">
-        <h4 class="mb-3">Sign Up to Continue!</h4>
-        <hr class="hr-bold-purple">
-        <div class="row">
-          <div class="mb-3 col-md-6 col-sm-12">
-            <input type="fname" name="fname" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
-          </div>
-          <div class="mb-3 col-md-6 col-sm-12">
-            <input type="lname" name="lname" class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
-          </div>
+    <!-- CONTENT -->
+    <form  action = "<?php echo htmlentities($_SERVER['PHP_SELF']);?>" method = "POST" class="justify-item-center text-center" style="margin-top: 5.5rem;">
+        <div class="card shadow-lg p-3" style="max-width: 400px;">
+            <div class="card-body">
+                <h4 class="mb-3">Sign Up to Continue!</h4>
+                <hr class="hr-bold-purple">
+                <div class="row">
+                    <div class="mb-3 col-md-6 col-sm-12">
+                        <input type="fname" name="fname" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
+                    </div>
+                    <div class="mb-3 col-md-6 col-sm-12">
+                        <input type="lname" name  = "lname"class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <select name="profession" class="form-select" aria-label="Default select example">
+                        <option selected disabled>Profession</option>
+                        <option value="Student">Student</option>
+                        <option value="Developer">Developer</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input type="orgname" name="oname" class="form-control" id="exampleFormControlInput1" placeholder="Organization Name">
+                </div>
+                <div class="mb-3">
+                    <select name="intrest" class="form-select" aria-label="Default select example">
+                        <option selected disabled>Interests</option>
+                        <option value="Machine Learning">Machine Learning</option>
+                        <option value="Deep Learning">Deep Learning</option>
+                        <option value="Artificial Inteligence">Artificial Inteligence</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email">
+                </div>
+                <div class="mb-3">
+                    <input type="password" name="pass" class="form-control" id="exampleFormControlInput1" placeholder="Enter Password">
+                </div>
+                <div class="mb-3">
+                    <input type="password" name = "cpass"class="form-control" id="exampleFormControlInput1" placeholder="Confirm Password">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" name="submit" class="btn btn-primary btn-lg">Sign Up!</button>
+                </div>
+                <p>Already Have an Account? <a href="./signIn.php" class="card-link">Sign In</a></p>
+            </div>
         </div>
-        <div class="mb-3">
-          <select name="profession" class="form-select" aria-label="Default select example">
-            <option selected disabled>Profession</option>
-            <option value="Student">Student</option>
-            <option value="Developer">Developer</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <input type="orgname" name="oname" class="form-control" id="exampleFormControlInput1" placeholder="Organization Name">
-        </div>
-        <div class="mb-3">
-          <select name="intrest" class="form-select" aria-label="Default select example">
-            <option selected disabled>Interests</option>
-            <option value="Machine Learning">Machine Learning</option>
-            <option value="Deep Learning">Deep Learning</option>
-            <option value="Artificial Inteligence">Artificial Inteligence</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email">
-        </div>
-        <div class="mb-3">
-          <input type="password" name="pass" class="form-control" id="exampleFormControlInput1" placeholder="Enter Password">
-        </div>
-        <div class="mb-3">
-          <input type="password" name="cpass" class="form-control" id="exampleFormControlInput1" placeholder="Confirm Password">
-        </div>
-        <div class="mb-3">
-          <button type="submit" name="submit" class="btn btn-primary btn-lg">Sign Up!</button>
-        </div>
-        <p>Already Have an Account? <a href="./signIn.php" class="card-link">Sign In</a></p>
-      </div>
-    </div>
-  </form>
-  <!-- FOOTER -->
-  <footer class="my-4">
-    <hr class="dropdown-divider">
-    <p class="text-center text-muted">© 2021 PyProjects, Inc</p>
-  </footer>
+    </form>
+    <!-- FOOTER -->
+    <footer class="my-4">
+        <hr class="dropdown-divider">
+        <p class="text-center text-muted">© 2021 PyProjects, Inc</p>
+    </footer>
 
-  <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Optional JavaScript; choose one of the two! -->
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
-  <!-- Option 2: Separate Popper and Bootstrap JS -->
-  <!--
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     -->
@@ -101,85 +101,92 @@ session_start(); //this function is used to start the session
 <?php
 
 include 'dbcon.php';
-if (isset($_POST['submit']))  //will check whether submit button is clicked or not
+if(isset($_POST['submit']))  //will check whether submit button is clicked or not
 {
   //this if condition ensures that no such field should remain empty
-  if (!(empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['oname']) || empty($_POST['email']) || empty($_POST['pass']) || empty($_POST['cpass']) || empty($_POST['intrest']) || empty($_POST['profession']))) {
-    $fname = $_POST['fname']; //user entered first name will be stored in $fname
-    $lname = $_POST['lname']; //user entered last name will be stored in $lname
-    $profession = $_POST['profession']; //user selected profession will be stored in $profession
-    $oname = $_POST['oname']; //user entered organization name will be stored in $oname
-    $intrest = $_POST['intrest']; //user selected intrest will be stored in $intrest
-    $email = $_POST['email']; //user entered email  will be stored in $email
-    $pass = $_POST['pass']; //user entered first name will be stored in $pass
-    $cpass = $_POST['cpass']; //user entered first name will be stored in $cpass
-    $emailquery = "SELECT * FROM joinus WHERE email = '$email'";  // this query collect the data of rows which contains user entered email address
-    $query_for_mail = mysqli_query($con, $emailquery);
-    $email_count = mysqli_num_rows($query_for_mail); //this will count no of rows of table which contains user entered email
-    if ($email_count > 0) //if email already exist in the table then it will give an error
+    if(!(empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['oname']) || empty($_POST['email']) || empty($_POST['pass']) || empty($_POST['cpass']) || empty($_POST['intrest']) || empty($_POST['profession'])))
     {
-?>
-      <script>
-        alert('email already exist');
-      </script>
-
-      <?php
-    } else {
-      if (strlen($pass) >= 6) //condition will true if and only if password length is greater than 5 character
-      {
-        if ($pass != $cpass) {
-      ?>
-          <script>
-            alert('password and confirm password not match'); //alert will be displayed if password and confirm password won't match with each other
-          </script>
-
-          <?php
-        } else {
-          $hash = password_hash($pass, PASSWORD_BCRYPT);  //this will encrypt the password 
-          $chash = password_hash($cpass, PASSWORD_BCRYPT); // this will encrypt the confirm password
-          $token = bin2hex(random_bytes(15)); // this will allocate the random string with 15 characters
-          $insertquery = "INSERT INTO joinus(fname,lname,oname,email,pass,profession,intrest,token) VALUES ('$fname','$lname','$oname','$email','$hash','$profession','$intrest','$token')";
-          //this query is use to insert the user entered data into join us table
-          $query = mysqli_query($con, $insertquery);
-
-          if ($query) //this will check whether query run successfully or not
-          {
-          ?>
-            <script>
-              alert('You are registered!'); //massage will be displayed if user registered successfully
-              location.replace("signIn.php"); //by this user will redirect to signin page
-            </script>
-
-            <?php
-
-            require 'PHPMailerAutoload.php';
-            require 'idpass.php';
-
-            $mail = new PHPMailer;
-
-            $mail->SMTPDebug = 4;                               // Enable verbose debug output
-
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = EMAIL;                 // SMTP username
-            $mail->Password = PASS;                           // SMTP password
-            $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 587;                                    // TCP port to connect to
-
-            $mail->setFrom(EMAIL, 'PyProjects');
-            $mail->addAddress($email);     // Add a recipient
-            // Name is optional
-            $mail->addReplyTo(EMAIL);
-            // $mail->addCC('cc@example.com');
-            // $mail->addBCC('bcc@example.com');
-
-            // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-            // Optional name
-            $mail->isHTML(true);                                  // Set email format to HTML
-
-            $mail->Subject = 'Welcome to Pyproject';
-            $mail->Body    = ' <style type="text/css">
+        $fname=$_POST['fname']; //user entered first name will be stored in $fname
+        $lname=$_POST['lname']; //user entered last name will be stored in $lname
+        $profession=$_POST['profession']; //user selected profession will be stored in $profession
+        $oname=$_POST['oname']; //user entered organization name will be stored in $oname
+        $intrest=$_POST['intrest']; //user selected intrest will be stored in $intrest
+        $email=$_POST['email']; //user entered email  will be stored in $email
+        $pass=$_POST['pass']; //user entered first name will be stored in $pass
+        $cpass=$_POST['cpass']; //user entered first name will be stored in $cpass
+        $emailquery = "SELECT * FROM joinus WHERE email = '$email'";  // this query collect the data of rows which contains user entered email address
+        $query_for_mail = mysqli_query($con,$emailquery); 
+    $email_count = mysqli_num_rows($query_for_mail);//this will count no of rows of table which contains user entered email
+    if($email_count > 0) //if email already exist in the table then it will give an error
+    {
+        ?>
+        <script>    
+            alert('email already exist');
+        </script>
+    
+        <?php
+    }
+    else
+    {
+        if(strlen($pass)>=6) //condition will true if and only if password length is greater than 5 character
+        {
+            if($pass != $cpass)  
+            {
+               ?>
+               <script>    
+                   alert('password and confirm password not match'); //alert will be displayed if password and confirm password won't match with each other
+               </script>
+           
+               <?php
+            }
+            
+            else
+            {
+               $hash = password_hash($pass,PASSWORD_BCRYPT);  //this will encrypt the password 
+               $chash = password_hash($cpass,PASSWORD_BCRYPT); // this will encrypt the confirm password
+               $token = bin2hex(random_bytes(15)); // this will allocate the random string with 15 characters
+               $insertquery = "INSERT INTO joinus(fname,lname,oname,email,pass,profession,intrest,token) VALUES ('$fname','$lname','$oname','$email','$hash','$profession','$intrest','$token')";
+              //this query is use to insert the user entered data into join us table
+               $query = mysqli_query($con,$insertquery);
+               
+               if($query) //this will check whether query run successfully or not
+               {  
+                   ?>
+                   <script>    
+                       alert('You are registered!'); //massage will be displayed if user registered successfully
+                       location.replace("signIn.php"); //by this user will redirect to signin page
+                   </script>
+               
+                   <?php
+       
+       require 'PHPMailerAutoload.php';
+       require 'idpass.php';
+       
+       $mail = new PHPMailer;
+       
+       $mail->SMTPDebug = 4;                               // Enable verbose debug output
+       
+       $mail->isSMTP();                                      // Set mailer to use SMTP
+       $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+       $mail->SMTPAuth = true;                               // Enable SMTP authentication
+       $mail->Username = EMAIL;                 // SMTP username
+       $mail->Password = PASS;                           // SMTP password
+       $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+       $mail->Port = 587;                                    // TCP port to connect to
+       
+       $mail->setFrom(EMAIL, 'PyProjects');
+       $mail->addAddress($email);     // Add a recipient
+              // Name is optional
+       $mail->addReplyTo(EMAIL);
+       // $mail->addCC('cc@example.com');
+       // $mail->addBCC('bcc@example.com');
+       
+       // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+          // Optional name
+       $mail->isHTML(true);                                  // Set email format to HTML
+       
+       $mail->Subject = 'Welcome to Pyproject';
+   $mail->Body    = ' <style type="text/css">
    /* Take care of image borders and formatting */
 
    img { max-width: 600px; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;}
@@ -420,44 +427,52 @@ font-family:Helvetcia, sans-serif;font-size:16px;font-weight:bold;line-height:40
    </tr>
  </table>
  </body>';
-            $mail->AltBody = 'You are Registered';
+   $mail->AltBody = 'You are Registered';
+   
+       
+       if(!$mail->send()) {
+           echo 'Message could not be sent.';
+           //echo 'Mailer Error: ' . $mail->ErrorInfo;
+       } else {
+           echo 'Message has been sent';
+       }
+                   
+               }
+               else
+               {
+                    
+                   ?>
+                   <script>
+                       alert('data not inserted'); //alert displayed if data not inserted properly into database
+                   </script>
+               
+                   <?php
+               }
+           }
+        }
+        else
+        {
+            ?>
+                   <script>
+                       alert('Password should contain atleast 6 characters'); //alert occurs if password length <6
+                   </script>
+               
+                   <?php
+        }
+    } 
 
-
-            if (!$mail->send()) {
-              echo 'Message could not be sent.';
-              //echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-              echo 'Message has been sent';
-            }
-          } else {
-
+   }
+         else{
+              
             ?>
             <script>
-              alert('data not inserted'); //alert displayed if data not inserted properly into database
+                alert('fill all fields properly'); //this alert will be displayed if atleast one field is empty
             </script>
-
-        <?php
-          }
-        }
-      } else {
-        ?>
-        <script>
-          alert('Password should contain atleast 6 characters'); //alert occurs if password length <6
-        </script>
-
-    <?php
-      }
+        
+            <?php
+         }
+        
     }
-  } else {
-
-    ?>
-    <script>
-      alert('fill all fields properly'); //this alert will be displayed if atleast one field is empty
-    </script>
-
-<?php
-  }
-}
-
-
+  
+    
 ?>

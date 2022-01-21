@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
 
     <!-- Bootstrap CSS / Extra CSS -->
-    <link rel="stylesheet" href="./css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./css/style.css?v=<?php echo time();?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
     <title>PyProjects | Home</title>
@@ -58,7 +58,7 @@
     <div class="row align-items-md-stretch">
         <?php
         if (!isset($_SESSION['fname'])) //it will exicute if user not logged in
-        {
+         {
         ?>
             <div class="col-md-6">
                 <div class="h-100 p-5 text-white bg-dark rounded-3">
@@ -72,7 +72,7 @@
             </div>
         <?php } ?>
         <div class="<?php if (!isset($_SESSION['fname'])) //this will display the name of the logged in user
-                    {
+        {
                         echo 'col-md-6';
                     } else {
                         echo 'col-md-12';

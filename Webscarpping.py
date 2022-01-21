@@ -5,18 +5,17 @@ from bs4 import BeautifulSoup
 import re
 import json
 
-# Webscarpping
+#Webscarpping
 terms = sys.argv[2]
-response = requests.get(
-    f"https://www.youtube.com/results?search_query={terms}").text
+response = requests.get(f"https://www.youtube.com/results?search_query={terms}").text
 
-soup = BeautifulSoup(response, 'lxml')
+soup =  BeautifulSoup(response,'lxml')
 
-script = soup.find_all("script")[32]
+script =  soup.find_all("script")[32]
 
-json_text = re.search('var ytInitialData = (.+)[,;]{1}', str(script)).group(1)
+json_text = re.search('var ytInitialData = (.+)[,;]{1}',str(script)).group(1)
 
-json_data = json.loads(json_text)
+json_data =  json.loads(json_text)
 
 content = (
     json_data['contents']['twoColumnSearchResultsRenderer']
@@ -24,36 +23,44 @@ content = (
     ['contents'][0]['itemSectionRenderer']
     ['contents']
 )
-i = 0
+i=0 
 for data in content:
-    for key, value in data.items():
+    for key,value in data.items():
         if type(value) is dict:
             for k, v in value.items():
-                if k == "videoId" and len(v) == 11:
+                if k =="videoId" and len(v) == 11:
                     Id = v
-                    i = i+1
-                if k == "thumbnail" and "thumbnails" in v:
+                    i=i+1
+                if k =="thumbnail" and "thumbnails" in v:
                     pic = v["thumbnails"][0]["url"]+'\n'
-    if(i > 2):
-        break
-
-# connecting to the database
+    if(i>2):
+     break             
+#print(title)
+# connecting to the database 
 dataBase = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database="pyproject")
+                     host = "localhost",
+                     user = "root",
+                     passwd = "",
+                     database = "pyproject" ) 
 
 
-# preparing a cursor object
+# preparing a cursor object 
 cursorObject = dataBase.cursor()
 
 # selecting query
-query = "UPDATE projects SET Videolink = %s WHERE Pyid = %s"
-val = ("https://www.youtube.com/watch?v="+Id, sys.argv[1])
+query ="UPDATE projects SET Videolink = %s WHERE Pyid = %s"
+val = ("https://www.youtube.com/watch?v="+Id,sys.argv[1])
 
-cursorObject.execute(query, val)
+cursorObject.execute(query,val)
 dataBase.commit()
+
+# query =  "UPDATE projects SET IMAGE = %s WHERE Pyid = %s"
+# val = (pic,sys.argv[1])
+
+# cursorObject.execute(query,val)
+# dataBase.commit()
+  
+#myresult = cursorObject.fetchall()
 
 # disconnecting from server
 dataBase.close()
